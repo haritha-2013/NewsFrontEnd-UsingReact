@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/ArticleCard.css"
+import "../components/Cards.css"
 
 
 
@@ -12,7 +12,7 @@ function AuthorCard({ author}) {
             <article className="authors">
             <h3 >{author.name}</h3>
             <p>{author.bio}</p>
-              <img src ={author.image} alt={author.name} />
+              <img  src ={author.image} alt={author.name} />
             
             </article>
         </div>

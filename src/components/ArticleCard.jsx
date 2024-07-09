@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/ArticleCard.css"
+import "../components/Cards.css"
 
 function ArticleCard ({ article }) {
    
