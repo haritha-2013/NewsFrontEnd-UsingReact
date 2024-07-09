@@ -1,0 +1,82 @@
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.article {
+  flex: 1 1 calc(50% - 20px); 
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+
+.article:hover {
+  transform: translateY(-5px); 
+}
+
+.article h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.article img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.article p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #333333;
+}
+
+.author-container 
+  .author-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .authors {
+    
+      flex: 1 1 calc(33.33% - 20px); /* Three authors per row, with gap */
+      padding: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    
+  }
+
+  .authors img {
+    
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .authors h3 {
+      
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      
+    }
+
+    .authors p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #333333;
+    }
+
+    .author :hover {
+      transform: translateY(-5px); 
+    }

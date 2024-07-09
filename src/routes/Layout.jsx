@@ -1,10 +1,12 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link , useLoaderData } from "react-router-dom";
 
 import DateComponent from "../components/DateComponent";
 import TimeComponent from "../components/TimeComponent";
 
+
 const Layout = () => {
+
   
   return (
     <>
@@ -33,15 +35,15 @@ const Layout = () => {
           </li>
          
           <li>
-            <Link to="/contact" className="custom-link" >Authors</Link>
+            <Link to="/authors" className="custom-link" >Authors</Link>
           </li>
         
          <li>
-          <Link to="/blogs" className="custom-link">Articles</Link>
+          <Link to="/articles" className="custom-link">Articles</Link>
           </li>
           
           <li>
-            <Link to="/contact" className="custom-link">Login</Link>
+            <Link to="/login" className="custom-link">Login</Link>
           </li>
     </ul>
           
@@ -62,10 +64,10 @@ const Layout = () => {
       </div>
       </div>
       <footer>
-      <div class="copyright">
+      <div className="copyright">
         <h2>NewsPulse</h2>
         <span>copyright </span>
-        <span class="material-symbols-outlined">
+        <span className="material-symbols-outlined">
           copyright
         </span>
         <span>2024 NewsPulse.Inc</span>
