@@ -2,19 +2,23 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  
 }
 
 .article {
   flex: 1 1 calc(50% - 20px); 
   padding: 15px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #ffffff;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #dbd7d7;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
+h1,h2,h3,h4,h5,h6 {
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
+}
 .article:hover {
   transform: translateY(-5px); 
 }
@@ -42,6 +46,7 @@
     display: inline-block; 
     width: 30%; 
     margin: 10px; 
+    
   }
    
   
@@ -84,4 +89,44 @@
       transform: translateY(-5px); 
     }
 
+     .author-container img {
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      
+      flex: 1 1 calc(33.33% - 20px); 
+      padding: 15px;
+      margin-top: 24px;
+     
+     }
    
+
+     .author-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      
+     }
+
+     .author-card h1 {
+      padding-bottom: 12px;
+      font-family: 'monospace';
+     }
+
+     .author-card p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #333333;
+     }
+
+     .author-card img {
+      border: 0.5px solid grey;
+      border-radius: 8px;
+      margin-bottom: 8px;
+     }

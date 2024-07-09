@@ -26,15 +26,18 @@ const Authors = () => {
 
   return (
     <div>
-      <h1 style={{textAlign:'center' , fontFamily: 'monospace'}}>Authors</h1>
-      <ul style={{listStyle:'none'}}>
-        {authors.map(author => (
-          <li key={author._id}>
-            <Link style={{textDecoration: 'none'}} to = {'/authors/${author._id}'}> 
-            <AuthorCard  author={author} />
-            </Link>
-          </li>
-        ))}
+      <h1 style={{ textAlign:'center', fontFamily: 'monospace' }}>Authors</h1>
+      <ul style={{ listStyle: 'none' }}>
+        {authors.map(author => {
+          console.log(author); 
+          return (
+            <li key={author._id}>
+              <Link style={{ textDecoration: 'none' }} to={`/authors/${author._id}`}>
+                <AuthorCard author={author} />
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
