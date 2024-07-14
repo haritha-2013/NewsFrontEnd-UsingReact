@@ -18,7 +18,7 @@ import Signup from './routes/Signup';
 import Login from './routes/Login'
 import Logout from './routes/Logout'
 
-import store from './App/store.js' ;
+import store from './App/store'
 import { Provider } from 'react-redux';
 
 
