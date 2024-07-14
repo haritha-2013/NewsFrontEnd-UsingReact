@@ -6,7 +6,7 @@ import AuthorCard from '../components/AuthorCard'
 
 export async function authorsLoader() {
   try {
-    const response = await axios.get('http://localhost:3000/authors');
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/authors`);
     return response.data;
   } catch (error) {
     throw new Response("Error fetching authors", { status: 500, statusText: error.message });

@@ -4,9 +4,10 @@
     box-sizing: border-box;
 }
 .container {
-    width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
+  width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
       margin-top: 24px;
       margin-bottom: 24px;
 
@@ -51,8 +52,7 @@ h3 {
 
 .top-header {
   position: relative;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding: 24px;
   margin-top: 24px;
   margin-bottom: 24px;
   text-align: center;
@@ -65,6 +65,16 @@ h3 {
   border-radius: 12px;
 }
 
+.date-time-box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+  position: absolute;
+  left: 10px;
+  top: 30px;
+}
+
 .time-date {
   display: flex;
   flex-direction: row;
@@ -75,34 +85,16 @@ h3 {
   display: flex;
 }
 
-
-
-.date-time-box {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 20px;
-text-align: left;
-  background-color: #f9f9f9;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .content {
   flex-grow: 1;
   padding: 20px;
 }
 
-.date-time-box {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px;
-  margin-top: 10px;
-  display: inline-block;
-  text-align: center;
-  background-color: #fff;
-  position: absolute;
-  left: 10px; 
-  top: 30px; 
-}
+
+
+
+
+
 
 .footerLink {
   display: flex;
@@ -127,4 +119,56 @@ text-align: left;
   margin-bottom: 12px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 12px;
+}
+/**Form**/
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 2rem;
+}
+
+form input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+
+}
+
+form span {
+  color: red;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .headerSecond ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footerLink {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .date-time-box {
+    position: static;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-header {
+    font-size: 1rem;
+    padding: 16px;
+  }
+
+  .footerLink {
+    font-size: 10px;
+  }
 }

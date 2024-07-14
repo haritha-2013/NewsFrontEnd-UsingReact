@@ -10,7 +10,7 @@
   padding: 15px;
   border: 1px solid #ffffff;
   border-radius: 8px;
-  background-color: #dbd7d7;
+  background-color: #ece6e6;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -38,7 +38,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 .article p {
   font-size: 0.9rem;
   line-height: 1.4;
-  color: #333333;
+  color: #000000;
 }
 
 
@@ -49,6 +49,11 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
   }
    
+  .author-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
   
   
   .authors {
@@ -64,9 +69,22 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
   }
 
+  .author-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  
+  
   .authors img {
     
-      width: 200px;
+      width: 180px;
       height: auto;
       border-radius: 8px;
       margin-bottom: 10px;
@@ -126,7 +144,41 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
      }
 
      .author-card img {
-      border: 0.5px solid grey;
+      border: 0.5px solid rgb(202, 202, 202);
       border-radius: 8px;
       margin-bottom: 8px;
      }
+     .loginForm input, .signupForm input {
+      border: 1px solid #555555;
+      border-radius: 8px;
+      width: 100%; 
+    }
+
+    .login-btn {
+      color: red;
+      margin: 20px auto;
+      display: block;
+    }
+
+    /* Media Queries for smaller screens */
+@media (max-width: 768px) {
+  .article {
+    flex: 1 1 100%;
+  }
+
+  .author-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .article {
+    padding: 10px;
+}
+  
+} 
+
+  .author-container {
+    width: 100%;
+    margin: 5px 0;
+  }

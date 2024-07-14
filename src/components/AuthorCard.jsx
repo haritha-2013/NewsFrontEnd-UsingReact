@@ -8,7 +8,7 @@ import "../components/Cards.css"
 function AuthorCard({ author}) {
    
     return (
-        <div className="author-container">
+        <div className="author-card">
             <article className="authors">
             <h3 >{author.name}</h3>
             <p>{author.bio}</p>

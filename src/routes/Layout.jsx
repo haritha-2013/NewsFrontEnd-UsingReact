@@ -1,14 +1,46 @@
-import React from "react";
-import { Outlet, Link , useLoaderData } from "react-router-dom";
+import React, { useState, useEffect} from "react";
+import { Outlet, Link,  } from "react-router-dom";
+
 
 import DateComponent from "../components/DateComponent";
 import TimeComponent from "../components/TimeComponent";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { changeLoginStatus } from "../features/login/loginSlice";
+
+
 
 
 const Layout = () => {
+ 
+const loggedIn = useSelector(state => state.
+  login.loggedIn);
+
+  const dispatch = useDispatch();
+useEffect(() => {
+
+  const checkLoggedInStatus = async () => {
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/verify`, {
+        withCredentials: true
+      });
+      console.log('Verification response:', response);
+      if (response.status === 200) {
+        dispatch(changeLoginStatus(true));
+      } else {
+        dispatch(changeLoginStatus(false));
+      }
+    } catch (error) {
+      console.error('Verification error:', error);
+      dispatch(changeLoginStatus(false));
+    }
+  };
 
   
-  return (
+  checkLoggedInStatus();
+}, [dispatch]);
+ 
+return (
     <>
 <header>
  
@@ -43,8 +75,20 @@ const Layout = () => {
           </li>
           
           <li>
-            <Link to="/login" className="custom-link">Login</Link>
+            <Link to="/signup" className="custom-link">SignUp</Link>
           </li>
+
+        {
+            loggedIn ? ( <li>
+            <Link to="/logout" className="custom-link">Logout</Link>
+          </li>
+          ) : (<li>
+            <Link to="/login" className="custom-link">Login</Link>
+          </li> )
+        }
+
+
+          
     </ul>
           
        

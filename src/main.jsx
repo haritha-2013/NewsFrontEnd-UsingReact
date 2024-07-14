@@ -14,15 +14,24 @@ import Authors, { authorsLoader} from './routes/Authors';
 import AuthorDetail, { authorDetailLoader } from './routes/AuthorDetail';
 import Home, { homeLoader} from './routes/Home';
 import MainPage from './routes/MainPage';
+import Signup from './routes/Signup';
+import Login from './routes/Login'
+import Logout from './routes/Logout'
+
+import store from './App/store.js' ;
+import { Provider } from 'react-redux';
+
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:< Layout /> ,
     errorElement: <ErrorPage />,
-  
 
-  children:  [
+
+  
+    children:  [
     {
       path: "/" ,
       element : < MainPage/>
@@ -58,6 +67,19 @@ const router = createBrowserRouter([
       path: "authors/:authorId",
       element: <AuthorDetail/>,
       loader: authorDetailLoader
+    },
+    {
+      path: "/signup",
+      element: <Signup/>
+    },
+    {
+      path: "/login",
+      element: <Login/>
+    },
+
+    {
+      path: "/logout",
+      element: < Logout/>
     }
   ],
 },
@@ -68,6 +90,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={store}>
    <RouterProvider router={router} />
+   </Provider>
   </React.StrictMode>,
 );
