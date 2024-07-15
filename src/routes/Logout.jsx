@@ -4,26 +4,22 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { changeLoginStatus } from "../features/login/loginSlice";
 
-function Logout (props) {
-
-    const navigate = useNavigate () 
-    const dispatch = useDispatch()
-    
-useEffect (() => {
-    axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/logout`, {
-        withCredentials:true
-    }
-    
-    )
-    .then (res => {
-        dispatch (changeLoginStatus(false))
-        navigate ('/login')
-
-    })
-    .catch(error => {
-        console.log(error)
-    })
-}), []
+function Logout() {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/logout`, {
+        withCredentials: true
+      })
+      .then(res => {
+        dispatch(changeLoginStatus(false));
+        navigate('/login');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }, []);
 
     return (
         <div>
