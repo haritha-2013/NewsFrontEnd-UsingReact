@@ -1,11 +1,11 @@
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ArticleCard from '../components/ArticleCard'; 
+import ArticleCard from '../components/ArticleCard';
 
 const MainPage = () => {
   const [articles, setArticles] = useState([]);
   const [loginStatus, setLoginStatus] = useState(false);
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -14,6 +14,8 @@ const MainPage = () => {
         setArticles(response.data);
       } catch (error) {
         console.error('Error fetching articles:', error);
+      } finally {
+        setLoading(false); 
       }
     };
 
@@ -25,14 +27,17 @@ const MainPage = () => {
           withCredentials: true,
         });
         setLoginStatus(verifyResponse.data.verified);
-        console.log(verifyResponse.data);
       } catch (error) {
         console.error('Error fetching verification:', error);
       }
     };
 
     fetchVerification();
-  }, []); 
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
 
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
