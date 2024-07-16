@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
-import Articles from './Articles';
+
 
 export async function articleLoader({ params }) {
   const { articleId } = params;

@@ -1,32 +1,36 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { changeLoginStatus } from "../App/loginSlice";
+
 
 function Logout() {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-  
-    useEffect(() => {
-      axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/logout`, {
-        withCredentials: true
-      })
-      .then(res => {
-        dispatch(changeLoginStatus(false));
-        navigate('/login');
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    }, []);
+  const navigate = useNavigate();
 
-    return (
-        <div>
+  useEffect(() => {
+    const logout = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/logout`, {
+          withCredentials: true
+        });
+        if (response.status === 200) {
+         
+          navigate('/login');
+        } else {
+          console.error('Logout failed:', response.data);
+        }
+      } catch (error) {
+        console.error('Error during logout:', error);
+      }
+    };
 
-            Logging out...
-        </div>
-    )
+    logout();
+  }, [navigate]);
+
+  return (
+    <div>
+      Logging out...
+    </div>
+  );
 }
 
-export default Logout
+export default Logout;

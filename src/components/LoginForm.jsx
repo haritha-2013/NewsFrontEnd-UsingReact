@@ -1,29 +1,28 @@
 import axios from "axios"
-
 import { useForm } from "react-hook-form"
-
+import { useState } from "react"
 import "../components/Cards.css"
-import { useDispatch } from "react-redux"
-import { changeLoginStatus } from "../App/loginSlice"
 
 
 export default function LoginForm() {
-const dispatch = useDispatch()
-
+  const [loginSuccess, setLoginSuccess] = useState(false);
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm()
 
   const onSubmit = (data) => {
     axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth/login`, data, { withCredentials: true })
-      .then(res => dispatch(changeLoginStatus(true)))
-      .catch(error => dispatch(changeLoginStatus(false)));
-  };
-  
-  
+    .then(res => {
+   
+      setLoginSuccess(true); 
+    })
+    .catch(error => {
+      console.error('Login error:', error);
+      setLoginSuccess(false); 
+    });
+};
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */

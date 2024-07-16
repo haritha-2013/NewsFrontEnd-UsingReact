@@ -1,23 +1,19 @@
-import React, { useState, useEffect} from "react";
-import { Outlet, Link,  } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Outlet, Link, useLocation } from "react-router-dom";
 
 
 import DateComponent from "../components/DateComponent";
 import TimeComponent from "../components/TimeComponent";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { changeLoginStatus } from "../App/loginSlice";
 
 
 
 
 const Layout = () => {
- 
-const loggedIn = useSelector(state => state.
-  login.loggedIn);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const location = useLocation();
 
-  const dispatch = useDispatch();
-useEffect(() => {
+  useEffect(() => {
 
   const checkLoggedInStatus = async () => {
     try {
@@ -26,20 +22,19 @@ useEffect(() => {
       });
       console.log('Verification response:', response);
       if (response.status === 200) {
-        dispatch(changeLoginStatus(true));
+        setLoggedIn(true);
       } else {
-        dispatch(changeLoginStatus(false));
+        setLoggedIn(false);
       }
     } catch (error) {
       console.error('Verification error:', error);
-      dispatch(changeLoginStatus(false));
+      setLoggedIn(false);
     }
   };
 
-  
   checkLoggedInStatus();
-}, [dispatch]);
- 
+}, [location]);
+
 return (
     <>
 <header>
