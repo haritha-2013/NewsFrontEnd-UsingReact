@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 
 import "../components/Cards.css"
 import { useDispatch } from "react-redux"
-import { changeLoginStatus } from "../features/login/loginSlice"
+import { changeLoginStatus } from "../App/loginSlice"
 
 
 export default function LoginForm() {

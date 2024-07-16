@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { changeLoginStatus } from "../features/login/loginSlice";
+import { changeLoginStatus } from "../App/loginSlice";
 
 function Logout() {
     const navigate = useNavigate();

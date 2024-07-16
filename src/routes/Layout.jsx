@@ -6,7 +6,7 @@ import DateComponent from "../components/DateComponent";
 import TimeComponent from "../components/TimeComponent";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { changeLoginStatus } from "../features/login/loginSlice";
+import { changeLoginStatus } from "../App/loginSlice";
 
 
 
