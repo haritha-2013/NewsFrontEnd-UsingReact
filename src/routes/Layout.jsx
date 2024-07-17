@@ -14,7 +14,11 @@ const Layout = () => {
   useEffect(() => {
     const checkLoggedInStatus = async () => {
       try {
+        const token = localStorage.getItem('token'); // Retrieve token from local storage
         const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/verify`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
           withCredentials: true,
         });
         console.log('Verification response:', response);

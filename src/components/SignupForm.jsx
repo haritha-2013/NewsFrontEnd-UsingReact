@@ -10,12 +10,12 @@ export default function SignupForm() {
   } = useForm()
 
   const onSubmit = (data) => {
-    axios.post (`${import.meta.env.VITE_API_BASE_URL}/users` , data)
+    axios.post (`${import.meta.env.VITE_API_BASE_URL}/users`, data)
     .then(() => console.log("Signed up"))
     .catch(error => console.log(error))
   }
 
-  console.log(watch("example")) // watch input value by passing the name of it
+  console.log(watch("example")) 
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
