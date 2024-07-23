@@ -2,10 +2,11 @@ import React from "react";
 import { useLoaderData,  } from "react-router-dom";
 import axios from 'axios';
 import "../components/Cards.css"
+const DB_URL = import.meta.env.VITE_API_BASE_URL
 
 export async function authorDetailLoader({ params }) {
-  const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/authors/${params.authorId}`);
-  return response.data;
+const response = await axios.get(`${DB_URL}/authors/${params.authorId}`);
+return response.data;
 }
 
 const AuthorDetail = () => {

@@ -8,6 +8,7 @@ import axios from "axios";
 
 
 const Layout = () => {
+  const DB_URL = import.meta.env.VITE_API_BASE_URL
   const [loggedIn, setLoggedIn] = useState(false);
   const location = useLocation();
 
@@ -15,7 +16,7 @@ const Layout = () => {
     const checkLoggedInStatus = async () => {
       try {
         
-        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/verify`, {
+        const response = await axios.get(`${DB_URL}/auth/verify`, {
          withCredentials: true,
         });
         console.log('Verification response:', response);
@@ -27,7 +28,6 @@ const Layout = () => {
           console.log('User is not logged in');
         }
       } catch (error) {
-        console.error('Verification error:', error);
         setLoggedIn(false);
       }
     };

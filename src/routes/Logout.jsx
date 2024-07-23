@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+const DB_URL = import.meta.env.VITE_API_BASE_URL
 
 
 function Logout() {
@@ -9,7 +10,7 @@ function Logout() {
   useEffect(() => {
     const logout = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/logout`, {
+        const response = await axios.get(`${DB_URL}/auth/logout`, {
           withCredentials: true
         });
         if (response.status === 200) {

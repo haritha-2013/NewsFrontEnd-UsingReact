@@ -6,7 +6,8 @@ import ArticleCard from "../components/ArticleCard";
 export async function articlesLoader() {
 try {
   // Fetch articles
-  const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/articles`);
+  const DB_URL = import.meta.env.VITE_API_BASE_URL
+  const response = await axios.get(`${DB_URL}/articles`);
   const articles = response.data;
   return { articles }; 
 } catch (error) {

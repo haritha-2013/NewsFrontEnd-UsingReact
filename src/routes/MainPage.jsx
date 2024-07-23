@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ArticleCard from '../components/ArticleCard';
+const DB_URL = import.meta.env.VITE_API_BASE_URL
 
 const MainPage = () => {
   const [articles, setArticles] = useState([]);
@@ -10,7 +11,7 @@ const MainPage = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/articles`);
+        const response = await axios.get(`${DB_URL}/articles`);
         setArticles(response.data);
       } catch (error) {
         console.error('Error fetching articles:', error);

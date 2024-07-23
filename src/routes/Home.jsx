@@ -4,7 +4,9 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ArticleCard from '../components/ArticleCard';
 export async function loader () {
-  const response = await axios.get (`${import.meta.env.VITE_API_BASE_URL}/articles`);
+
+  const DB_URL = import.meta.env.VITE_API_BASE_URL
+  const response = await axios.get (`${DB_URL}/articles`);
   const articles = response.data;
   return { articles};
 

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { useState } from "react"
 import "../components/Cards.css"
 
+const DB_URL = import.meta.env.VITE_API_BASE_URL
 
 export default function LoginForm() {
   const [loginSuccess, setLoginSuccess] = useState(false);
@@ -13,7 +14,7 @@ export default function LoginForm() {
   } = useForm()
 
   const onSubmit = (data) => {
-    axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth/login`, data, 
+    axios.post(`${DB_URL}/auth/login`, data, 
       {withCredentials: true})
     .then(res => {
    

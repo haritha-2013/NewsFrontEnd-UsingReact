@@ -3,9 +3,11 @@ import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 
 
+
 export async function articleLoader({ params }) {
+  const DB_URL = import.meta.env.VITE_API_BASE_URL
   const { articleId } = params;
-  const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/articles/${articleId}`);
+  const response = await axios.get(`${DB_URL}/articles/${articleId}`);
   return response.data;
 }
 

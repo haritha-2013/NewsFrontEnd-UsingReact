@@ -9,8 +9,9 @@ export default function SignupForm() {
     formState: { errors },
   } = useForm()
 
+  const DB_URL = import.meta.env.VITE_API_BASE_URL
   const onSubmit = (data) => {
-    axios.post (`${import.meta.env.VITE_API_BASE_URL}/users`, data)
+    axios.post (`${DB_URL}/users`, data)
     .then(() => console.log("Signed up"))
     .catch(error => console.log(error))
   }

@@ -2,11 +2,11 @@ import React from "react";
 import { useLoaderData, Link, useRouteError } from "react-router-dom";
 import axios from 'axios';
 import AuthorCard from '../components/AuthorCard'
-
+const DB_URL = import.meta.env.VITE_API_BASE_URL
 
 export async function authorsLoader() {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/authors`);
+    const response = await axios.get(`${DB_URL}/authors`);
     return response.data;
   } catch (error) {
     throw new Response("Error fetching authors", { status: 500, statusText: error.message });
