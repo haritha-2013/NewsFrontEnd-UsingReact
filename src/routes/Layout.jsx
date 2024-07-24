@@ -1,39 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import DateComponent from "../components/DateComponent";
 import TimeComponent from "../components/TimeComponent";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { changeLoginStatus } from "../features/login/loginSlice";
 
 
 
 
 const Layout = () => {
   const DB_URL = import.meta.env.VITE_API_BASE_URL
-  const [loggedIn, setLoggedIn] = useState(false);
+  const loggedIn = useSelector(state => state.login.loggedIn);
   const location = useLocation();
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    const checkLoggedInStatus = async () => {
-      try {
-        
-        const response = await axios.get(`${DB_URL}/auth/verify`, {
-         withCredentials: true,
-        });
-        console.log('Verification response:', response);
-        if (response.status === 200) {
-          setLoggedIn(true);
-          console.log('User is logged in');
-        } else {
-          setLoggedIn(false);
-          console.log('User is not logged in');
-        }
-      } catch (error) {
-        setLoggedIn(false);
-      }
-    };
+    axios.get (`${DB_URL}/auth/verify`, {
+      withCredentials: true
+    })
+    .then(response => {
+      dispatch(changeLoginStatus(true))
+    })
+    .catch(error => {
+      dispatch(changeLoginStatus(false))
 
-    checkLoggedInStatus();
-  }, [location]);
+    })
+  }, [])
+  
 
 return (
     <>

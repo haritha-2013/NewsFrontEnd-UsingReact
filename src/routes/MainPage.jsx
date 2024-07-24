@@ -24,7 +24,7 @@ const MainPage = () => {
 
     const fetchVerification = async () => {
       try {
-        const verifyResponse = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/verify`, {
+        const verifyResponse = await axios.get(`${DB_URL}/auth/verify`, {
           withCredentials: true,
         });
         setLoginStatus(verifyResponse.data.verified);
